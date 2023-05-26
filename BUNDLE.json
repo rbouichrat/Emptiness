@@ -1,0 +1,113 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "Bundle",
+  "url": "https://fhir.centraxx.de/StructureDefinition/Bundle",
+  "version": "2022.1.0",
+  "name": "BundleTransaction",
+  "status": "active",
+  "publisher": "Kairos an IQVIA business",
+  "description": "Represents a transaction bundle.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Bundle",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Bundle",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Bundle.type",
+        "path": "Bundle.type",
+        "min": 1,
+        "fixedString": "transaction",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry",
+        "path": "Bundle.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "exists",
+              "path": "fullUrl"
+            },
+            {
+              "type": "exists",
+              "path": "resource"
+            }
+          ],
+          "rules": "closed"
+        },
+        "min": 1,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:resource",
+        "path": "Bundle.entry",
+        "sliceName": "resource",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:resource.resource",
+        "path": "Bundle.entry.resource",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:resource.request",
+        "path": "Bundle.entry.request",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:resource.request.method",
+        "path": "Bundle.entry.request.method",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:resource.request.url",
+        "path": "Bundle.entry.request.url",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:delete",
+        "path": "Bundle.entry",
+        "sliceName": "delete",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:delete.fullUrl",
+        "path": "Bundle.entry.fullUrl",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:delete.request",
+        "path": "Bundle.entry.request",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:delete.request.method",
+        "path": "Bundle.entry.request.method",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:delete.request.url",
+        "path": "Bundle.entry.request.url",
+        "min": 1,
+        "mustSupport": true
+      }
+    ]
+  }
+}

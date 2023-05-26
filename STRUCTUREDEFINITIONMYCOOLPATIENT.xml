@@ -1,0 +1,64 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2023-04-24T09:57:55.218+00:00" />
+  </meta>
+  <url value="https://example.org/fhir/StructureDefinition/MyCoolPatient" />
+  <name value="MyCoolPatient" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Patient" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Patient.implicitRules">
+      <path value="Patient.implicitRules" />
+      <min value="1" />
+    </element>
+    <element id="Patient.language">
+      <path value="Patient.language" />
+      <max value="0" />
+    </element>
+    <element id="Patient.text">
+      <path value="Patient.text" />
+      <max value="0" />
+    </element>
+    <element id="Patient.contained">
+      <path value="Patient.contained" />
+      <max value="0" />
+    </element>
+    <element id="Patient.identifier">
+      <path value="Patient.identifier" />
+      <max value="0" />
+    </element>
+    <element id="Patient.telecom">
+      <path value="Patient.telecom" />
+      <max value="0" />
+    </element>
+    <element id="Patient.gender">
+      <path value="Patient.gender" />
+      <max value="0" />
+    </element>
+    <element id="Patient.birthDate">
+      <path value="Patient.birthDate" />
+      <max value="0" />
+    </element>
+    <element id="Patient.deceased[x]">
+      <path value="Patient.deceased[x]" />
+      <max value="0" />
+    </element>
+    <element id="Patient.address">
+      <path value="Patient.address" />
+      <max value="0" />
+    </element>
+    <element id="Patient.maritalStatus">
+      <path value="Patient.maritalStatus" />
+      <max value="0" />
+    </element>
+    <element id="Patient.photo">
+      <path value="Patient.photo" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

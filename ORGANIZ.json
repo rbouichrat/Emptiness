@@ -1,0 +1,101 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "Organization",
+  "url": "https://fhir.centraxx.de/StructureDefinition/Organization",
+  "version": "2022.1.0",
+  "name": "Organization",
+  "status": "active",
+  "publisher": "Kairos an IQVIA business",
+  "description": "Represents a CentraXX Organization Unit. Organization resources are read only so far.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Organization",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Organization",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Organization.extension",
+        "path": "Organization.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "closed"
+        },
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.extension:updateWithOverwrite",
+        "path": "Organization.extension",
+        "sliceName": "updateWithOverwrite",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://fhir.centraxx.de/extension/updateWithOverwrite"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.identifier",
+        "path": "Organization.identifier",
+        "min": 0,
+        "max": "1",
+        "patternIdentifier": {
+          "system": "https://fhir.centraxx.de/system/organizationUnit"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.identifier.system",
+        "path": "Organization.identifier.system",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.identifier.value",
+        "path": "Organization.identifier.value",
+        "sliceName": "code",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.name",
+        "path": "Organization.name",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.alias",
+        "path": "Organization.alias",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.partOf",
+        "path": "Organization.partOf",
+        "sliceName": "parent",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://fhir.centraxx.de/StructureDefinition/Organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}
